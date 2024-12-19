@@ -1,0 +1,13 @@
+<div class="deportes-container">
+  <div class="deportes-card">
+    <h2>Deportes Disponibles</h2>
+    <div class="deportes-list">
+      <div *ngFor="let deporte of deportes" class="deporte-card">
+        <img [src]="deporte.imagen || 'https://via.placeholder.com/300x200?text=Imagen+Por+Defecto'" alt="{{deporte.nombre}}" class="deporte-img"/>
+        <h3>{{deporte.nombre}}</h3>
+        <p>{{deporte.descripcion}}</p>
+        <button class="inscribirse-btn" (click)="inscribirse(deporte.nombre)">Inscribirse</button>
+      </div>
+    </div>
+  </div>
+</div>

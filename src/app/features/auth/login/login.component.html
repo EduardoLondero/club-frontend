@@ -1,0 +1,40 @@
+<div class="login-container">
+  <div class="login-card">
+    <h2>Iniciar Sesión</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <!-- Campo Usuario -->
+      <div class="form-group">
+        <label for="username">Usuario</label>
+        <input 
+          id="username" 
+          type="text" 
+          formControlName="username" 
+          placeholder="Ingresa tu usuario" 
+        />
+      </div>
+
+      <!-- Campo Contraseña -->
+      <div class="form-group">
+        <label for="password">Contraseña</label>
+        <input 
+          id="password" 
+          type="password" 
+          formControlName="password" 
+          placeholder="Ingresa tu contraseña" 
+        />
+      </div>
+
+      <!-- Mensaje de Error -->
+      <div *ngIf="loginError" class="error-message">{{ loginError }}</div>
+
+      <!-- Botón de Ingreso -->
+      <button type="submit" class="login-button">Ingresar</button>
+    </form>
+
+    <!-- Opciones adicionales -->
+    <div class="login-options">
+      <button (click)="goToRegister()" class="link-option">Crear Usuario</button>
+      <button (click)="goToRecoverPassword()" class="link-option">Recuperar Contraseña</button>
+    </div>
+  </div>
+</div>

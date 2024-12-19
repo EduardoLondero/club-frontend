@@ -1,0 +1,10 @@
+<app-top-bar (toggleSidebar)="toggleSidebar()"></app-top-bar>
+<div class="layout">
+  <app-side-bar 
+    [isOpen]="isSidebarOpen" 
+    (close)="toggleSidebar()">
+  </app-side-bar>
+  <main class="content" [ngClass]="{ 'content-expanded': isSidebarOpen }">
+    <router-outlet></router-outlet>
+  </main>
+</div>

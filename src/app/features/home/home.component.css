@@ -1,0 +1,276 @@
+/* General Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+h1, h2, h3 {
+  color: #2c3e50;
+}
+
+p {
+  line-height: 1.6;
+  font-size: 1rem;
+  color: #555;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+/* Hero Section */
+.hero-section {
+background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)), 
+url('https://freeimag.com/files/preview/960x960/11701112011sg6qqjftcia4mecmtoinhtjz0qezg0poiwjubcj8lgnazbi2apjzc1epzdjqzlewll2qv1jdkzqpnlvqscx9jfnlaqoexrwke9ag.png') center/cover no-repeat;
+color: #fff;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.hero-content {
+  color: white;
+  max-width: 600px;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.hero-content p {
+  font-size: 1.25rem;
+  margin-bottom: 30px;
+}
+
+.hero-content .btn-primary {
+  padding: 15px 30px;
+  background-color: #e74c3c;
+  color: white;
+  font-weight: bold;
+  border-radius: 25px;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.hero-content .btn-primary:hover {
+  background-color: #c0392b;
+}
+
+/* Welcome Section */
+.welcome-section {
+  padding: 50px 0;
+  background-color: #fff;
+}
+
+.welcome-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.welcome-info p {
+  max-width: 600px;
+}
+
+.welcome-info .welcome-img {
+  width: 45%;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Features Section */
+.features-section {
+  padding: 60px 0;
+  background-color: #ecf0f1;
+}
+
+.features-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.feature-card {
+  background-color: white;
+  width: 32%;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.feature-card img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.feature-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.feature-card p {
+  font-size: 1rem;
+}
+
+/* CTA Section */
+.cta-section {
+  background-color: #e74c3c;
+  color: white;
+  padding: 60px 0;
+  text-align: center;
+}
+
+.cta-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.cta-section p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+.cta-section .btn-primary {
+  padding: 15px 30px;
+  background-color: white;
+  color: #e74c3c;
+  font-weight: bold;
+  border-radius: 25px;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.cta-section .btn-primary:hover {
+  background-color: #c0392b;
+  color: white;
+}
+
+/* Testimonials Section */
+.testimonials-section {
+  padding: 60px 0;
+  background-color: #fff;
+}
+
+.testimonial-cards {
+  display: flex;
+  gap: 20px;
+}
+
+.testimonial-card {
+  background-color: #f4f4f4;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  flex: 1;
+}
+
+.testimonial-card p {
+  font-size: 1rem;
+  margin-bottom: 15px;
+  font-style: italic;
+}
+
+.testimonial-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 5px;
+}
+
+.testimonial-card p:last-child {
+  font-size: 0.9rem;
+  color: #777;
+}
+
+/* Blog Section */
+.blog-section {
+  padding: 60px 0;
+  background-color: #ecf0f1;
+}
+
+.blog-cards {
+  display: flex;
+  gap: 20px;
+}
+
+.blog-card {
+  background-color: white;
+  width: 48%;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.blog-card img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.blog-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.blog-card a {
+  color: #e74c3c;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 1rem;
+  margin-top: 10px;
+  display: inline-block;
+}
+
+.blog-card a:hover {
+  color: #c0392b;
+}
+
+/* Footer */
+.footer {
+  background-color: #2c3e50;
+  color: white;
+  padding: 30px 0;
+  text-align: center;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-content p {
+  margin-bottom: 15px;
+}
+
+.social-links a {
+  color: white;
+  font-size: 1.5rem;
+  margin: 0 10px;
+  transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+  color: #e74c3c;
+}
+

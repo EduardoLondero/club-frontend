@@ -1,0 +1,13 @@
+<aside class="side-bar" [ngClass]="{'open': isOpen}">
+  <div class="close-btn-container">
+    <button class="close-btn" (click)="closeSideBar()">✖</button>
+  </div>
+  <div class="button-container">
+    <button class="side-btn" (click)="goToDeporte()">Deporte</button>
+    <button class="side-btn" (click)="goToMembresias()">Membresias</button>
+    <button class="side-btn" (click)="goToInscripciones()">Inscripciones</button>
+    <button class="side-btn" (click)="goToCursos()">Cursos</button>
+    <button class="side-btn" (click)="goToTareas()">Tareas</button>
+    <button class="side-btn" (click)="goToNoticias()">Noticias</button>
+  </div>
+</aside>

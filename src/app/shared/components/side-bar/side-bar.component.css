@@ -1,0 +1,71 @@
+.side-bar {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 250px;
+  height: 100vh;
+  background-color: #333; /* Fondo oscuro para el side bar */
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  transition: left 0.3s ease;
+  color: #fff; /* Color de texto blanco */
+  font-family: Arial, sans-serif;
+}
+
+.side-bar.open {
+  left: 0;
+}
+
+.close-btn-container {
+  text-align: right;
+}
+
+.close-btn {
+  font-size: 24px;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  padding: 10px;
+  transition: transform 0.3s ease;
+}
+
+.close-btn:hover {
+  transform: rotate(45deg); /* Gira el botón de cerrar cuando se pasa el ratón */
+}
+
+.button-container {
+  margin-top: 20px;
+}
+
+.side-btn {
+  display: block;
+  width: 100%;
+  margin: 12px 0;
+  padding: 12px;
+  background-color: #444; /* Fondo de los botones */
+  color: #fff;
+  font-size: 16px;
+  border: none;
+  border-radius: 25px; /* Bordes redondeados */
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Transición para los efectos */
+}
+
+.side-btn:hover {
+  background-color: #666; /* Cambia el color al pasar el ratón */
+  transform: translateX(10px); /* Desplaza el botón ligeramente hacia la derecha */
+}
+
+.side-btn:focus {
+  outline: none; /* Elimina el borde al hacer clic */
+}
+
+.side-btn.active {
+  background-color: #0056b3; /* Fondo más brillante para el botón activo */
+}
+
+.side-btn.active:hover {
+  background-color: #004494; /* Fondo aún más oscuro cuando el botón está activo */
+}

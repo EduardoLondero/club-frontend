@@ -1,0 +1,14 @@
+.layout {
+    display: flex;
+  }
+  
+  .content {
+    flex-grow: 1;
+    padding: 20px;
+    transition: margin-left 0.3s ease; /* Suavizar el desplazamiento del contenido */
+  }
+  
+  .side-bar.open ~ .content {
+    margin-left: 250px; /* Desplazar el contenido cuando el sidebar está abierto */
+  }
+  
