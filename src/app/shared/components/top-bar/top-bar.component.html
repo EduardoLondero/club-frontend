@@ -1,13 +1,36 @@
-<div class="top-bar">
-  <div class="left-section">
-    <button (click)="onToggleSidebar()">☰</button> <!-- Botón para abrir/cerrar el side bar -->
+<header class="top-bar">
+  <div class="logo-container">
+    <img src="https://newellsoldboys.com.ar/wp-content/uploads/2022/07/logoNob-3.png" alt="Club Logo" />
+    <span class="club-name">Club Atlético Newell's Old Boys</span>
   </div>
-  
-  <div class="center-section">
-    <button (click)="goHome()">App</button> <!-- Botón para ir al menú principal -->
+  <nav class="menu">
+    <ul class="menu-list">
+      <li><a href="/">Inicio</a></li>
+      <li class="dropdown">
+        <a href="#">Institucional</a>
+        <ul class="dropdown-content">
+          <li><a href="#">Historia</a></li>
+          <li><a href="#">Directivos</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="#">Fútbol Masculino</a>
+        <ul class="dropdown-content">
+          <li><a href="#">Plantel Profesional</a></li>
+          <li><a href="#">Cuerpo Técnico</a></li>
+          <li><a href="#">Fixture</a></li>
+          <li><a href="#">Leyendas</a></li>
+        </ul>
+      </li>
+      <li><a href="#">Socios</a></li>
+      <li><a href="#">Noticias</a></li>
+    </ul>
+  </nav>
+  <div class="icons">
+    <a href="#"><i class="fas fa-search"></i></a>
+    <a href="#"><i class="fab fa-facebook-f"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-youtube"></i></a>
   </div>
-  
-  <div class="right-section">
-    <button (click)="goToLogin()">Login</button> <!-- Botón de Login -->
-  </div>
-</div>
+</header>
