@@ -8,22 +8,20 @@ import { Router } from '@angular/router';
   styleUrls: ['./top-bar.component.css'],
 })
 export class TopBarComponent {
-  @Output() toggleSidebar = new EventEmitter<void>();  // EventEmitter para abrir/cerrar el sidebar
-
   constructor(private router: Router) {}
 
-  // Función para emitir el evento que abre o cierra el side bar
-  onToggleSidebar() {
-    this.toggleSidebar.emit();  // Usamos .emit() para emitir el evento
+  navigateTo(route: string): void {
+    this.router.navigate([`/${route}`]);
   }
 
-  // Función para navegar a la página principal
-  goHome() {
-    this.router.navigate(['/']);  // Navega a la página principal
+  navigateToHome() {
+    this.router.navigate(['/home']); // Ruta de inicio
   }
 
-  // Función para navegar a la página de login
-  goToLogin() {
-    this.router.navigate(['/login']);  // Navega a la página de login
+  onDropdownClick(option: string): void {
+    // Aquí puedes implementar lógica específica para cada opción desplegable
+    console.log(`Seleccionaste: ${option}`);
+    // Por ejemplo, redirigir a una página específica
+    // this.router.navigate([`/${option}`]);
   }
 }

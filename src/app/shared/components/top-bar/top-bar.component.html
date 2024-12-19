@@ -1,36 +1,61 @@
-<header class="top-bar">
-  <div class="logo-container">
+<div class="top-bar">
+  <div class="logo" (click)="navigateToHome()">
     <img src="https://newellsoldboys.com.ar/wp-content/uploads/2022/07/logoNob-3.png" alt="Club Logo" />
-    <span class="club-name">Club Atlético Newell's Old Boys</span>
+    <span>Club Atlético Newell's Old Boys</span>
   </div>
-  <nav class="menu">
-    <ul class="menu-list">
-      <li><a href="/">Inicio</a></li>
-      <li class="dropdown">
-        <a href="#">Institucional</a>
-        <ul class="dropdown-content">
-          <li><a href="#">Historia</a></li>
-          <li><a href="#">Directivos</a></li>
-        </ul>
-      </li>
-      <li class="dropdown">
-        <a href="#">Fútbol Masculino</a>
-        <ul class="dropdown-content">
-          <li><a href="#">Plantel Profesional</a></li>
-          <li><a href="#">Cuerpo Técnico</a></li>
-          <li><a href="#">Fixture</a></li>
-          <li><a href="#">Leyendas</a></li>
-        </ul>
-      </li>
-      <li><a href="#">Socios</a></li>
-      <li><a href="#">Noticias</a></li>
-    </ul>
-  </nav>
-  <div class="icons">
-    <a href="#"><i class="fas fa-search"></i></a>
+  <ul class="menu-list">
+    <li>
+      <button (click)="navigateTo('home')">
+        <i class="fas fa-home"></i>
+      </button>
+    </li>
+    <li class="dropdown">
+      <button>
+        Institucional <i class="fas fa-chevron-down"></i>
+      </button>
+      <ul class="dropdown-content">
+        <li><button (click)="onDropdownClick('historia')">Historia</button></li>
+        <li><button (click)="onDropdownClick('directiva')">Comisión Directiva</button></li>
+        <li><button (click)="onDropdownClick('estadio')">Estadio</button></li>
+      </ul>
+    </li>
+    <li class="dropdown">
+      <button>
+        El Club <i class="fas fa-chevron-down"></i>
+      </button>
+      <ul class="dropdown-content">
+        <li><button (click)="onDropdownClick('futbol-masculino')">Fútbol Masculino</button></li>
+        <li><button (click)="onDropdownClick('futbol-femenino')">Fútbol Femenino</button></li>
+        <li><button (click)="onDropdownClick('juveniles')">Juveniles</button></li>
+        <li><button (click)="onDropdownClick('deportes-amateurs')">Deportes Amateurs</button></li>
+      </ul>
+    </li>
+    <li>
+      <button (click)="navigateTo('sedes')">SEDES</button>
+    </li>
+    <li>
+      <button (click)="navigateTo('socios')">SOCIOS</button>
+    </li>
+    <li>
+      <button (click)="navigateTo('noticias')">NOTICIAS</button>
+    </li>
+    <li>
+      <button (click)="navigateTo('prensa')">PRENSA</button>
+    </li>
+    <li>
+      <button (click)="navigateTo('login')">
+        <i class="fas fa-sign-in-alt"></i> Iniciar Sesión
+      </button>
+    </li>
+  </ul>
+  <div class="search">
+    <input type="text" placeholder="Buscar..." />
+    <button><i class="fas fa-search"></i></button>
+  </div>
+  <div class="social-icons">
     <a href="#"><i class="fab fa-facebook-f"></i></a>
     <a href="#"><i class="fab fa-instagram"></i></a>
     <a href="#"><i class="fab fa-twitter"></i></a>
     <a href="#"><i class="fab fa-youtube"></i></a>
   </div>
-</header>
+</div>
