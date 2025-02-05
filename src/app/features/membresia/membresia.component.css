@@ -1,0 +1,188 @@
+.membresia-container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+  margin-top: 80px;
+}
+
+.membresia-container h1 {
+  text-align: center;
+  color: #333;
+  font-size: 36px;
+  margin-bottom: 40px;
+}
+
+.membership-type {
+  background-color: #fff;
+  padding: 30px;
+  margin-bottom: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.membership-type:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.membership-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.membership-header h2 {
+  font-size: 26px;
+  color: #333;
+}
+
+.membership-header .price {
+  font-size: 22px;
+  color: #e74c3c;
+  font-weight: bold;
+}
+
+.membership-body h3 {
+  color: #555;
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+.membership-body ul {
+  list-style-type: none;
+  padding-left: 20px;
+}
+
+.membership-body li {
+  font-size: 18px;
+  color: #666;
+  margin-bottom: 12px;
+}
+
+.membership-body p {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.6;
+}
+
+.btn-inscripcion {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-inscripcion:hover {
+  background-color: #218838;
+}
+
+.auth-warning {
+  color: red;
+  font-weight: bold;
+  margin-top: 15px;
+  text-align: center;
+}
+
+.auth-warning {
+  color: #dc3545;
+  font-size: 1rem;
+  margin-top: 15px;
+}
+
+.alert {
+  padding: 15px;
+  margin-top: 20px;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.alert-danger {
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  color: #721c24;
+}
+
+.alert-success {
+  background-color: #d4edda;
+  border: 1px solid #c3e6cb;
+  color: #155724;
+}
+
+@media (max-width: 768px) {
+  .membresia-container {
+    padding: 15px;
+  }
+
+  .membresia-container h1 {
+    font-size: 28px;
+    margin-bottom: 30px;
+  }
+
+  .membership-type {
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+
+  .membership-header h2 {
+    font-size: 22px;
+  }
+
+  .membership-header .price {
+    font-size: 20px;
+  }
+
+  .membership-body h3 {
+    font-size: 18px;
+  }
+
+  .membership-body li {
+    font-size: 16px;
+  }
+
+  .btn-inscripcion {
+    font-size: 16px;
+    padding: 10px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .membresia-container h1 {
+    font-size: 24px;
+  }
+
+  .membership-type {
+    padding: 15px;
+  }
+
+  .membership-header h2 {
+    font-size: 20px;
+  }
+
+  .membership-header .price {
+    font-size: 18px;
+  }
+
+  .membership-body h3 {
+    font-size: 16px;
+  }
+
+  .membership-body li {
+    font-size: 14px;
+  }
+
+  .btn-inscripcion {
+    font-size: 14px;
+    padding: 8px 18px;
+  }
+
+  .auth-warning {
+    font-size: 14px;
+  }
+}

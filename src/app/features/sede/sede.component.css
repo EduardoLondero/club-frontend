@@ -1,0 +1,171 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+  }
+  
+
+  .sede-container {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 40px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+  
+  .sede-container:hover {
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+  }
+  
+  
+  .header {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+  
+  .header h1 {
+    font-size: 3rem;
+    color: #2b2d42;
+    margin-bottom: 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  .header p {
+    font-size: 1.2rem;
+    color: #7b7f98;
+    max-width: 800px;
+    margin: 0 auto 30px;
+    line-height: 1.6;
+    font-weight: 400;
+  }
+  
+
+  .sede-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 40px;
+    margin-top: 20px;
+  }
+  
+
+  .sede-card {
+    background: #f9f9f9;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .sede-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+  }
+  
+  .sede-image img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-bottom: 4px solid #ef233c;
+    transition: transform 0.3s ease;
+  }
+  
+  .sede-image img:hover {
+    transform: scale(1.05);
+  }
+  
+  .sede-info {
+    padding: 30px;
+  }
+  
+  .sede-info h2 {
+    font-size: 2rem;
+    color: #2b2d42;
+    font-weight: 600;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .sede-info h2 i {
+    color: #ef233c;
+    margin-right: 10px;
+  }
+  
+  .location {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 10px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+  }
+  
+  .location i {
+    color: #ef233c;
+    margin-right: 10px;
+  }
+  
+  .description {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 15px;
+    line-height: 1.6;
+  }
+  
+  .details {
+    font-size: 1rem;
+    color: #444;
+    line-height: 1.6;
+    margin-bottom: 25px;
+  }
+  
+  .details p {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .details p i {
+    color: #ef233c;
+    margin-right: 10px;
+  }
+  
+
+  @media (max-width: 768px) {
+    .sede-container {
+      padding: 25px;
+    }
+  
+    .header h1 {
+      font-size: 2.5rem;
+    }
+  
+    .header p {
+      font-size: 1.1rem;
+    }
+  
+    .sede-info h2 {
+      font-size: 1.7rem;
+    }
+  
+    .location {
+      font-size: 1rem;
+    }
+  
+    .description,
+    .details {
+      font-size: 1.1rem;
+    }
+  }
+  

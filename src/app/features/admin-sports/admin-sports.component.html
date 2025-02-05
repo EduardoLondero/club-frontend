@@ -1,0 +1,73 @@
+
+  <div class="sports-table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Nombre de Deporte</th>
+          <th>Hora de Inicio</th>
+          <th>Hora de Fin</th>
+          <th>Precio</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let sport of sports">
+          <td>{{ sport.sportName }}</td>
+          <td>{{ sport.schedule }}</td>
+          <td>{{ sport.scheduleEnd }}</td>
+          <td>{{ sport.price | currency }}</td>
+          <td>
+            <button (click)="openEditModal(sport)">Editar</button>
+            <button (click)="openDeleteModal(sport.id)">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <button class="btn-create" (click)="openCreateModal()">Crear Deporte</button>
+  
+    <div *ngIf="showDeleteModal" class="modal-overlay">
+      <div class="modal-content">
+        <h2>¿Estás seguro de que deseas eliminar este deporte?</h2>
+        <p>Esta acción no se puede deshacer.</p>
+        <button (click)="deleteSport()">Sí, Eliminar</button>
+        <button (click)="closeDeleteModal()">No, Cancelar</button>
+      </div>
+    </div>
+  
+    <div *ngIf="selectedSport || showCreateModal" class="modal-overlay">
+      <div class="modal-content">
+        <h2>{{ selectedSport?.id ? 'Editar Deporte' : 'Crear Deporte' }}</h2>
+  
+        <form (ngSubmit)="selectedSport?.id ? updateSport() : createSport()">
+          <div>
+            <label for="sportName">Nombre de Deporte</label>
+            <input type="text" id="sportName" [(ngModel)]="selectedSport.sportName" name="sportName" required />
+          </div>
+          <div>
+            <label for="schedule">Hora de Inicio</label>
+            <input type="text" id="schedule" [(ngModel)]="selectedSport.schedule" name="schedule" required />
+          </div>
+          <div>
+            <label for="scheduleEnd">Hora de Fin</label>
+            <input type="text" id="scheduleEnd" [(ngModel)]="selectedSport.scheduleEnd" name="scheduleEnd" required />
+          </div>
+          <div>
+            <label for="price">Precio</label>
+            <input type="number" id="price" [(ngModel)]="selectedSport.price" name="price" required />
+          </div>
+          <div>
+            <label for="imageUrl">URL de la Imagen</label>
+            <input type="text" id="imageUrl" [(ngModel)]="selectedSport.imageUrl" name="imageUrl" />
+          </div>
+  
+          <button type="submit">{{ selectedSport?.id ? 'Guardar Cambios' : 'Crear Deporte' }}</button>
+          <button type="button" (click)="closeModal()">Cancelar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="errorMessage" class="error-message">
+    <p>{{ errorMessage }}</p>
+  </div>
+  

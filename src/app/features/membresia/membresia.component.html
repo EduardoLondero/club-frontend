@@ -1,0 +1,41 @@
+<p>membresia works!</p>
+<div class="membresia-container">
+  <h1>Tipos de Membresía</h1>
+
+  <div class="membership-type" *ngFor="let membresia of membresias">
+    <div class="membership-header">
+      <h2>{{ membresia.description }}</h2>
+      <p class="price">${{ membresia.price }}</p>
+    </div>
+    <div class="membership-body">
+      <h3>Beneficios</h3>
+      <ul>
+        <li *ngFor="let beneficio of membresia.beneficios">{{ beneficio }}</li>
+      </ul>
+      <h3>¿Quiénes pueden solicitarlas?</h3>
+      <p>{{ membresia.requirements }}</p>
+    </div>
+
+    <button 
+      *ngIf="isAuthenticated && !tieneMembresiaActiva" 
+      (click)="inscribirse(membresia)"
+      class="btn-inscripcion">
+      Inscribirse
+    </button>
+
+    <p *ngIf="tieneMembresiaActiva" class="auth-warning">
+        Ya tienes una membresía activa.
+    </p>
+
+    <p *ngIf="!isAuthenticated" class="auth-warning">
+        Debes iniciar sesión para inscribirte.
+    </p>
+
+    <div *ngIf="membresia.errorMessage" class="alert alert-danger">
+      {{ membresia.errorMessage }}
+    </div>
+    <div *ngIf="membresia.successMessage" class="alert alert-success">
+      {{ membresia.successMessage }}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,193 @@
+
+.hero {
+  width: 100%;
+  height: 45vh;
+  background-size: cover;
+  background-position: center; 
+  background-repeat: no-repeat; 
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+  margin-bottom: 20px;
+}
+
+.hero-overlay {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 30px 40px;
+  border-radius: 15px;
+  color: #fff;
+  text-align: center;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 1.25rem;
+}
+
+.detalle-content {
+  width: 100%;
+  max-width: 900px; 
+  margin-top: 40px;
+  padding: 25px;
+  background: #fff;
+  box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: auto;
+  margin-right: auto; 
+}
+
+.detalle-card {
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.detalle-card h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #4caf50;
+  border-bottom: 3px solid #4caf50;
+  padding-bottom: 10px;
+}
+
+.detalle-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.detalle-card li {
+  font-size: 1.2rem;
+  margin: 12px 0;
+  padding-left: 10px;
+  position: relative;
+}
+
+.detalle-card li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: #4caf50;
+  font-size: 1.5rem;
+  top: 0;
+}
+
+.inscribirse-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.inscribirse-btn {
+  background: #4caf50;
+  color: #fff;
+  padding: 18px 35px;
+  font-size: 1.5rem;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s ease;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.inscribirse-btn:hover {
+  background: #388e3c;
+  transform: translateY(-4px);
+}
+
+.inscribirse-btn:active {
+  transform: translateY(0);
+  background: #2e7d32;
+}
+
+.error-message {
+  color: red;
+  font-weight: bold;
+  margin-top: 10px;
+  background-color: #f8d7da;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.success-message {
+  background-color: #d4edda;
+  color: #155724;
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 20px;
+  font-size: 16px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.error-message {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 20px;
+  font-size: 16px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .hero {
+    height: 40vh;
+    justify-content: flex-end;
+    padding: 10px;
+  }
+
+  .hero-overlay {
+    width: 90%;
+    padding: 20px;
+    font-size: 0.9rem;
+    border-radius: 12px;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero p {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .detalle-content {
+    width: 100%;
+    margin-top: 15px;
+    padding: 20px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+  }
+
+  .detalle-content h2 {
+    font-size: 1.7rem;
+  }
+
+  .detalle-content p {
+    font-size: 1rem;
+  }
+
+  .detalle-content .inscribirse-btn {
+    padding: 12px 25px;
+    font-size: 1.2rem;
+  }
+}
+
+.error {
+  text-align: center;
+  font-size: 1.5rem;
+  color: #d32f2f;
+  margin-top: 20px;
+}

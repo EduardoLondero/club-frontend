@@ -1,0 +1,44 @@
+<div *ngIf="deporte" class="deporte-detalle-container">
+
+  <div class="hero" [ngStyle]="{ 'background-image': 'url(' + (deporte.imageUrl || 'https://picsum.photos/600/400?text=Deporte') + ')' }">
+    <div class="hero-overlay">
+      <h1>{{ deporte.sportName }}</h1>
+      <p>{{ deporte.schedule }} - {{ deporte.scheduleEnd }}</p>
+    </div>
+  </div>
+
+  <div class="detalle-content">
+    <div class="detalle-card">
+      <h2>Detalles del Deporte</h2>
+      <ul>
+        <li><strong>Precio:</strong> ${{ deporte.price }}</li>
+        <li><strong>Horario:</strong> {{ deporte.schedule }} - {{ deporte.scheduleEnd }}</li>
+      </ul>
+    </div>
+
+    <div class="detalle-card" *ngIf="deporte.memberships && deporte.memberships.length">
+      <h2>Membresías Asociadas</h2>
+      <ul>
+        <li *ngFor="let membership of deporte.memberships">
+          <strong>{{ membership.name }}</strong> - {{ membership.type }}
+        </li>
+      </ul>
+    </div>
+
+    <div class="inscribirse-container">
+      <button class="inscribirse-btn" (click)="onInscribirse()">¡Inscribirse ahora!</button>
+    </div>
+
+    <div *ngIf="successMessage" class="success-message">
+      {{ successMessage }}
+    </div>
+
+    <div *ngIf="errorMessage" class="error-message">
+      {{ errorMessage }}
+    </div>
+  </div>
+</div>
+
+<div *ngIf="!deporte" class="error">
+  <p>No se encontró el deporte solicitado.</p>
+</div>

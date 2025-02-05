@@ -1,0 +1,22 @@
+<div class="deportes-container">
+  <div class="deportes-card">
+    <h2>Deportes Disponibles</h2>
+    <div class="deportes-list">
+
+      <div *ngIf="!deportes || deportes.length === 0" class="placeholder">
+        <p>No hay deportes disponibles por el momento. Vuelve pronto para ver nuevas opciones.</p>
+      </div>
+
+
+      <div *ngFor="let deporte of deportes" class="deporte-card">
+        <img [src]="deporte.imageUrl || 'https://picsum.photos/600/400?text=Deporte'" 
+             alt="{{deporte.sportName}}" class="deporte-img"/>
+        <h3>{{deporte.sportName}}</h3> 
+        <p>Precio: ${{deporte.price}}</p> 
+        <p>Hora de Inicio: {{deporte.schedule}}</p>
+        <p>Fecha de fin: {{deporte.scheduleEnd}}</p> 
+        <button class="info-btn" (click)="verInfo(deporte.sportName)">Información</button>
+      </div>
+    </div>
+  </div>
+</div>

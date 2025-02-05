@@ -1,0 +1,149 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+  }
+  
+  .stadium-container {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  .header {
+    text-align: center;
+    position: relative;
+  }
+  
+  .stadium-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    filter: brightness(0.85);
+    transition: filter 0.3s ease;
+  }
+  
+  .stadium-image:hover {
+    filter: brightness(1);
+  }
+  
+  h1 {
+    font-size: 2.8rem;
+    color: #2a3d66;
+    margin-top: 20px;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  
+  .intro {
+    font-size: 1.2rem;
+    color: #555;
+    margin-top: 20px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+    text-align: center;
+  }
+  
+  .details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-top: 50px;
+  }
+  
+  .detail {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .detail h2 {
+    font-size: 1.6rem;
+    color: #1a73e8;
+    margin-bottom: 10px;
+  }
+  
+  .detail p {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.6;
+  }
+  
+  .history {
+    margin-top: 60px;
+    text-align: center;
+  }
+  
+  .history h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 30px;
+    font-weight: 600;
+  }
+  
+  .history p {
+    font-size: 1.2rem;
+    color: #555;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: justify;
+  }
+  
+  @media (max-width: 768px) {
+    .stadium-container {
+      padding: 20px;
+    }
+  
+    .details {
+      grid-template-columns: 1fr;
+    }
+  
+    h1 {
+      font-size: 2.4rem;
+    }
+  
+    .intro {
+      font-size: 1.1rem;
+    }
+  
+    .detail h2 {
+      font-size: 1.4rem;
+    }
+  
+    .detail p {
+      font-size: 1rem;
+    }
+  
+    .history h2 {
+      font-size: 1.8rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    h1 {
+      font-size: 2rem;
+    }
+  
+    .intro {
+      font-size: 1rem;
+    }
+  
+    .history h2 {
+      font-size: 1.6rem;
+    }
+  }
+  

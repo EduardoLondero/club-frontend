@@ -1,0 +1,51 @@
+<div class="top-bar">
+  <div class="logo" (click)="navigateToHome()">
+    <img src="https://newellsoldboys.com.ar/wp-content/uploads/2022/07/logoNob-3.png" alt="Club Logo" />
+    <span>Club Atlético Newell's Old Boys</span>
+  </div>
+
+  <button class="menu-toggle" (click)="toggleMenu()">
+    <i class="fas fa-bars"></i>
+  </button>
+
+  <ul class="menu-list" [class.menu-open]="menuOpen">
+    <li><button (click)="navigateTo('home'); closeMenu()"><i class="fas fa-home"></i> Home</button></li>
+
+    <li class="dropdown">
+      <button (click)="toggleDropdown('institucional')">
+        Institucional <i class="fas fa-chevron-down"></i>
+      </button>
+      <ul class="dropdown-content" *ngIf="dropdownOpen.institucional">
+        <li><button (click)="onDropdownClick('historia'); closeMenu()">Historia</button></li>
+        <li><button (click)="onDropdownClick('directiva'); closeMenu()">Comisión Directiva</button></li>
+        <li><button (click)="onDropdownClick('estadio'); closeMenu()">Estadio</button></li>
+      </ul>
+    </li>
+
+    <li><button (click)="navigateTo('sedes'); closeMenu()">SEDES</button></li>
+    <li><button (click)="navigateTo('membresia'); closeMenu()">SOCIOS</button></li>
+    <li><button (click)="navigateTo('noticias'); closeMenu()">NOTICIAS</button></li>
+    <li><button (click)="navigateTo('deporte'); closeMenu()">DEPORTES</button></li>
+
+     <li *ngIf="isAuthenticated">
+      <button *ngIf="roleId === 2" (click)="navigateTo('profile'); closeMenu()">Mi Perfil</button>
+    </li>
+    <li *ngIf="isAuthenticated">
+      <button *ngIf="roleId === 1" (click)="navigateTo('admin'); closeMenu()" style="display: inline-block; margin-right: 10px;">Administrar Club</button>
+      <button *ngIf="roleId === 1" (click)="navigateTo('adminsports'); closeMenu()" style="display: inline-block;">Administrar Deportes</button>
+      <button *ngIf="roleId === 1" (click)="navigateTo('adminLocation'); closeMenu()" style="display: inline-block;">Administrar Locaciones</button>
+    </li>
+
+    <li *ngIf="!isAuthenticated"><button (click)="navigateTo('login'); closeMenu()"><i class="fas fa-sign-in-alt"></i> Iniciar Sesión</button></li>
+    <li *ngIf="isAuthenticated"><button (click)="toggleAuthState(); closeMenu()"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</button></li>
+
+  </ul>
+
+  <div class="social-icons">
+    <a href="https://www.facebook.com/canoboficial/?locale=es_LA" target="_blank"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://www.instagram.com/newells/" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://twitter.com/Newells" target="_blank"><i class="fab fa-twitter"></i></a>
+    <a href="https://www.youtube.com/@newellsinfo74" target="_blank"><i class="fab fa-youtube"></i></a>
+</div>
+
+</div>

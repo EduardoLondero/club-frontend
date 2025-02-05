@@ -1,0 +1,263 @@
+
+.sport-commission-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 50px;
+    background: linear-gradient(145deg, #f5f7fa, #e9eff6);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow: hidden;
+  }
+  
+  .header {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+  
+  .club-logo {
+    width: 220px;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.15));
+  }
+  
+  h1 {
+    font-size: 2.8rem;
+    color: #333;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+  }
+  
+  .intro {
+    font-size: 1.3rem;
+    color: #555;
+    line-height: 1.7;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .history {
+    margin-bottom: 60px;
+  }
+  
+  .history h2 {
+    font-size: 2.4rem;
+    color: #333;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    position: relative;
+  }
+  
+  .history h2::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 50px;
+    height: 2px;
+    background-color: #1a73e8;
+  }
+  
+  .history .description {
+    font-size: 1.2rem;
+    color: #666;
+    line-height: 1.7;
+    text-align: justify;
+    text-justify: inter-word;
+  }
+  
+  .goals {
+    margin-bottom: 60px;
+  }
+  
+  .goals h2 {
+    font-size: 2.4rem;
+    color: #333;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+  
+  .goals ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  .goals li {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 15px;
+    position: relative;
+    padding-left: 25px;
+  }
+  
+  .goals li::before {
+    content: '✔';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #1a73e8;
+    font-size: 1.3rem;
+    padding-right: 10px;
+  }
+  
+  .goals strong {
+    font-weight: 700;
+    color: #333;
+  }
+  
+  .activities {
+    margin-bottom: 60px;
+  }
+  
+  .activities h2 {
+    font-size: 2.4rem;
+    color: #333;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+  
+  .projects {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+  }
+  
+  .project {
+    background: #fff;
+    padding: 25px;
+    border-radius: 15px;
+    width: 320px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    position: relative;
+  }
+  
+  .project:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    background: #f1f5f8;
+  }
+  
+  .project h3 {
+    font-size: 1.6rem;
+    color: #333;
+    margin-bottom: 15px;
+    font-weight: 600;
+  }
+  
+  .project p {
+    font-size: 1.2rem;
+    color: #777;
+    line-height: 1.6;
+  }
+  
+
+.contact {
+    text-align: center;
+    margin-bottom: 50px;
+    padding: 20px;
+    background: #f5f7fa;
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .contact h2 {
+    font-size: 2.4rem;
+    color: #333;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+  
+  .contact p {
+    font-size: 1.2rem;
+    color: #777;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  
+  .contact-btn {
+    padding: 18px 35px;
+    background: #1a73e8;
+    color: #fff;
+    font-size: 1.2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    display: inline-block;
+    margin-top: 20px; 
+  }
+  
+  .contact-btn:hover {
+    background-color: #0d5bb1;
+    transform: scale(1.05);
+  }
+  
+  .contact-btn:active {
+    transform: scale(1);
+  }
+  
+
+  @media (max-width: 768px) {
+    .sport-commission-container {
+      padding: 25px;
+    }
+  
+    .header h1 {
+      font-size: 2.2rem;
+    }
+  
+    .intro {
+      font-size: 1.1rem;
+    }
+  
+    .history h2, .goals h2, .activities h2, .contact h2 {
+      font-size: 2rem;
+    }
+  
+    .project {
+      width: 280px;
+    }
+  
+    .projects {
+      flex-direction: column;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .header h1 {
+      font-size: 1.8rem;
+    }
+  
+    .intro {
+      font-size: 1rem;
+    }
+  
+    .history h2, .goals h2, .activities h2, .contact h2 {
+      font-size: 1.6rem;
+    }
+  
+    .project h3 {
+      font-size: 1.4rem;
+    }
+  
+    .project p {
+      font-size: 1rem;
+    }
+  
+    .contact-btn {
+      font-size: 1.1rem;
+    }
+  }
+  

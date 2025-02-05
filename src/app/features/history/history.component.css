@@ -1,0 +1,286 @@
+
+.history-container {
+    max-width: 1350px;
+    margin: 0 auto;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow: hidden;
+  }
+  
+
+  .history-header {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+  
+  .club-logo {
+    width: 180px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+    transition: filter 0.3s ease;
+  }
+  
+  .club-logo:hover {
+    filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.2));
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  .intro {
+    font-size: 1.25rem;
+    color: #555;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .timeline {
+    margin-bottom: 60px;
+  }
+  
+  .timeline h2 {
+    font-size: 2.2rem;
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+  }
+  
+  .timeline-events {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+  }
+  
+  .timeline-event {
+    background: linear-gradient(145deg, #ffffff, #f5f5f5);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .timeline-event:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  }
+  
+  .timeline-event h3 {
+    font-size: 1.7rem;
+    color: #333;
+    margin-bottom: 12px;
+    font-weight: 600;
+  }
+  
+  .timeline-event p {
+    font-size: 1.05rem;
+    color: #666;
+    line-height: 1.6;
+  }
+  
+  .famous-players {
+    margin-bottom: 60px;
+  }
+  
+  .famous-players h2 {
+    font-size: 2.2rem;
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+  }
+  
+  .famous-players ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  .famous-players li {
+    background: #f4f4f4;
+    padding: 25px;
+    border-radius: 12px;
+    width: 280px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .famous-players li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  }
+  
+  .famous-players strong {
+    font-size: 1.3rem;
+    color: #333;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  .notable-matches {
+    margin-bottom: 60px;
+  }
+  
+  .notable-matches h2 {
+    font-size: 2.2rem;
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+  }
+  
+  .match {
+    background: #f8f8f8;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .match:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  }
+  
+  .match h3 {
+    font-size: 1.7rem;
+    color: #333;
+    margin-bottom: 12px;
+    font-weight: 600;
+  }
+  
+  .match p {
+    font-size: 1.05rem;
+    color: #666;
+    line-height: 1.6;
+  }
+  
+  .quotes {
+    margin-bottom: 60px;
+  }
+  
+  .quotes h2 {
+    font-size: 2.2rem;
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+  }
+  
+  .quotes blockquote {
+    font-size: 1.3rem;
+    font-style: italic;
+    background: #f9f9f9;
+    padding: 25px;
+    border-left: 8px solid #333;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    color: #555;
+    line-height: 1.6;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .quotes blockquote:hover {
+    transform: translateX(5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+
+
+  .history-footer {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #777;
+  }
+  
+  .history-footer a {
+    color: #1a73e8;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+  
+  .history-footer a:hover {
+    color: #0d5bb1;
+    text-decoration: underline;
+  }
+  
+  @media (max-width: 768px) {
+    .history-container {
+      padding: 20px;
+    }
+  
+    .timeline h2,
+    .famous-players h2,
+    .notable-matches h2,
+    .quotes h2 {
+      font-size: 1.8rem;
+    }
+  
+    .timeline-event,
+    .famous-players li,
+    .match,
+    .quotes blockquote {
+      padding: 20px;
+    }
+  
+    .club-logo {
+      margin-top: 50px;
+      width: 150px;
+    }
+  
+    .timeline-events {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+  
+    .famous-players ul {
+      flex-direction: column;
+    }
+  
+    .history-footer {
+      font-size: 1rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    h1 {
+      font-size: 2rem;
+    }
+  
+    .intro {
+      font-size: 1.1rem;
+    }
+  
+    .timeline h2,
+    .famous-players h2,
+    .notable-matches h2,
+    .quotes h2 {
+      font-size: 1.6rem;
+    }
+  
+    .timeline-event h3,
+    .famous-players strong,
+    .match h3 {
+      font-size: 1.3rem;
+    }
+  
+    .timeline-event p,
+    .famous-players li,
+    .match p {
+      font-size: 1rem;
+    }
+  }
+  

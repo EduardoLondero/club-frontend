@@ -1,0 +1,36 @@
+<div class="login-container">
+  <div class="login-card">
+    <h2>Iniciar Sesión</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+      <div class="form-group">
+        <label for="username">Usuario</label>
+        <input 
+          id="username" 
+          type="text" 
+          formControlName="username" 
+          placeholder="Ingresa tu usuario" 
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="password">Contraseña</label>
+        <input 
+          id="password" 
+          type="password" 
+          formControlName="password" 
+          placeholder="Ingresa tu contraseña" 
+        />
+      </div>
+
+      <div *ngIf="loginError" class="error-message">{{ loginError }}</div>
+
+      <button type="submit" class="login-button" [disabled]="loginForm.invalid">Ingresar</button>
+    </form>
+
+    <div class="login-options">
+      <button (click)="goToRegister()" class="link-option">Crear Usuario</button>
+      <button (click)="goToRecoverPassword()" class="link-option">Recuperar Contraseña</button>
+    </div>
+  </div>
+</div>

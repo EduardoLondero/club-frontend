@@ -1,0 +1,502 @@
+.profile-container {
+  display: flex;
+  height: 100vh;
+  background-color: #f9f9f9;
+}
+
+.sidebar {
+  width: 280px;
+  background: linear-gradient(135deg, #2c3e50, #34495e);
+  padding: 20px;
+  position: fixed;
+  top: 60px;
+  bottom: 0;
+  left: 0;
+  overflow-y: auto;
+  z-index: 2;
+  box-shadow: 4px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.menu {
+  list-style: none;
+  padding: 0;
+}
+
+.menu li {
+  margin-bottom: 12px;
+}
+
+.menu button {
+  width: 100%;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: none;
+  text-align: left;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.menu button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateX(4px);
+}
+
+.menu button:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.content {
+  margin-left: 280px;
+  padding: 25px;
+  flex-grow: 1;
+  overflow-y: auto;
+  margin-top: 60px;
+}
+
+.content h2 {
+  font-size: 26px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.content p {
+  font-size: 16px;
+  color: #555;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.form-group label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.form-group input,
+.form-group select {
+  padding: 12px;
+  font-size: 16px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  background-color: white;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
+  outline: none;
+}
+
+.error {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+button {
+  padding: 14px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+  box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2);
+}
+
+button:hover {
+  background: linear-gradient(135deg, #0056b3, #003f80);
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+.membership-section {
+  margin-top: 30px;
+  background-color: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden; 
+}
+
+.membership-card {
+  background-color: #f9fafb;
+  padding: 20px;
+  margin-bottom: 25px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.membership-card p {
+  font-size: 16px;
+  color: #444;
+  margin-bottom: 10px;
+}
+
+.membership-card p strong {
+  color: #007bff;
+}
+
+.membership-card:hover {
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.15); 
+}
+
+.warning {
+  background-color: #fff3cd;
+  color: #856404;
+  padding: 12px;
+  border-radius: 8px;
+  margin-top: 20px;
+  font-size: 14px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn-cancel {
+  padding: 12px 18px;
+  font-size: 16px;
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s;
+  box-shadow: 0 4px 8px rgba(231, 76, 60, 0.2);
+  margin-top: 15px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-cancel:hover {
+  background-color: #c0392b;
+  transform: translateY(-2px);
+}
+
+.btn-cancel:active {
+  transform: translateY(0);
+}
+
+.btn-cancel svg {
+  margin-right: 8px;
+}
+
+.sports-list {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.sport-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px;
+  color: #333;
+  padding: 8px 0;
+}
+
+.sport-item button {
+  background-color: #dc3545;
+  color: white;
+  font-size: 14px;
+  padding: 5px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.sport-item button:hover {
+  background-color: #c82333;
+}
+
+.sport-item button:active {
+  transform: translateY(2px);
+}
+
+.empty-memberships {
+  font-size: 18px;
+  color: #777;
+  font-style: italic;
+  text-align: center;
+  margin-top: 30px;
+}
+
+button:hover, .btn-cancel:hover, .sport-item button:hover {
+  background-color: #007bff;
+  transform: translateY(-2px);
+}
+
+button:active, .btn-cancel:active, .sport-item button:active {
+  transform: translateY(0);
+}
+
+.alert {
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+.alert-success {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.alert-danger {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.confirm-delete {
+  background-color: #f8d7da;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.confirm-delete p {
+  font-size: 16px;
+  color: #721c24;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.btn-confirm {
+  padding: 12px 18px;
+  font-size: 16px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s;
+  box-shadow: 0 4px 8px rgba(40, 167, 69, 0.2);
+  margin: 5px;
+}
+
+.btn-confirm:hover {
+  background-color: #218838;
+  transform: translateY(-2px);
+}
+
+.btn-confirm:active {
+  transform: translateY(0);
+}
+
+.btn-cancel {
+  padding: 12px 18px;
+  font-size: 16px;
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s;
+  box-shadow: 0 4px 8px rgba(231, 76, 60, 0.2);
+  margin: 5px;
+}
+
+.btn-cancel:hover {
+  background-color: #c0392b;
+  transform: translateY(-2px);
+}
+
+.btn-cancel:active {
+  transform: translateY(0);
+}
+
+.pagos-section {
+  margin-top: 30px;
+  background-color: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+table th, table td {
+  padding: 12px;
+  text-align: left;
+  font-size: 16px;
+  color: #333;
+  border-bottom: 1px solid #ddd;
+}
+
+table th {
+  background-color: #f7f7f7;
+  font-weight: bold;
+}
+
+table tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+table td {
+  color: #555;
+}
+
+
+@media (max-width: 768px) {
+  .profile-container {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .sidebar {
+    width: 100%;
+    position: relative;
+    height: auto; 
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #333;
+  }
+
+  .menu button {
+    width: 100%;
+    font-size: 18px; 
+    padding: 12px;
+    border-radius: 8px;
+    background-color: #007bff;
+    color: white;
+  }
+
+  .menu button:hover {
+    background-color: #0056b3;
+  }
+
+  .content {
+    margin-left: 0;
+    padding: 20px;
+  }
+
+  .membership-section {
+    padding: 20px;
+    margin-top: 20px;
+  }
+
+  .membership-card {
+    padding: 18px;
+    margin-bottom: 20px;
+  }
+
+  .btn-cancel {
+    font-size: 14px;
+    padding: 10px 15px;
+  }
+
+  .sports-list {
+    margin-top: 15px;
+  }
+
+  .sport-item button {
+    padding: 4px 10px;
+  }
+
+  .confirm-delete {
+    padding: 15px;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .btn-confirm, .btn-cancel {
+    font-size: 14px;
+    padding: 10px 15px;
+    width: 100%; 
+    margin: 10px 0; 
+  }
+  
+  .confirm-delete p {
+    font-size: 14px;
+    margin-bottom: 15px;
+  }
+
+  table th, table td {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .menu button {
+    font-size: 16px;
+    padding: 10px;
+  }
+
+  .sidebar {
+    padding: 15px;
+  }
+
+  .content {
+    padding: 15px;
+  }
+  .membership-section {
+    padding: 15px;
+  }
+
+  .membership-card {
+    padding: 15px;
+  }
+
+  .btn-cancel {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+
+  .confirm-delete {
+    padding: 12px;
+  }
+
+  .btn-confirm, .btn-cancel {
+    font-size: 14px;
+    padding: 8px 12px;
+    width: 100%; 
+  }
+
+  .confirm-delete p {
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+}
