@@ -29,11 +29,12 @@ export class AdminSportsComponent implements OnInit {
   loadSports(): void {
     this.sportService.getSports().subscribe((sports) => {
       this.sports = sports.data;
+      
     });
   }
 
   openEditModal(sport: any) {
-    this.selectedSport = { ...sport };
+    this.selectedSport = { ...sport, memberships: [] };
     this.showCreateModal = false;
   }
 
@@ -54,7 +55,8 @@ export class AdminSportsComponent implements OnInit {
 
       const newSport = { 
         ...this.selectedSport, 
-        memberships: []
+        memberships: [],
+        
       };
 
       this.sportService.createSport(newSport).subscribe(() => {
@@ -78,7 +80,7 @@ export class AdminSportsComponent implements OnInit {
         this.closeModal();
       },
       (error) => {
-        this.errorMessage = error.error.message || 'Hubo un error al eliminar el deporte.';
+        this.errorMessage = error.error.message || 'Hubo un error al editar el deporte.';
       console.log(this.errorMessage);
       });
     }

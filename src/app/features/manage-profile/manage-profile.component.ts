@@ -57,7 +57,7 @@ export class ManageProfileComponent implements OnInit {
       confirmPassword: ['', Validators.required],
       address: ['', Validators.minLength(5)],
       birthDate: [{ value: '', disabled: true }],
-      sex: ['M']
+      sex: ['']
     }, { validators: this.passwordMatchValidator });
   }
 
@@ -200,14 +200,14 @@ cancelCancelMembership(): void {
         }
   
         this.userService.updateUser(userId, updatedData).subscribe({
-          next: (response) => {
+          next: () => {
             this.successMessage = 'Datos actualizados correctamente';
-            this.errorMessage = null;
+            this.errorMessage = null; 
           },
           error: (err) => {
-            console.error('Error al actualizar el perfil', err);
-            this.errorMessage = 'Hubo un error al actualizar los datos';
-            this.successMessage = null;
+            console.error('Error al actualizar el perfil:', err);
+            this.errorMessage = err.error.message || 'Hubo un error al actualizar los datos';
+            this.successMessage = null; 
           }
         });
       }

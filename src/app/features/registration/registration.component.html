@@ -90,6 +90,9 @@
             </div>
           </div>
           <button type="submit" class="btn-primary" [disabled]="registerForm.invalid">Registrar</button>
+          <div *ngIf="errorMessage" class="error-message">
+            <p>{{ errorMessage }}</p>
+          </div>          
         </form>
       </section>
     </div>

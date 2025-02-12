@@ -33,6 +33,7 @@ export class RegisterComponent implements OnInit {
   filteredLocalities: any[] = [];
   errorMessages: any;
   emailControl: any;
+  errorMessage: any;
 
   
 
@@ -79,30 +80,27 @@ formatDate(date: string): string {
   }
 
   onSubmit(registerForm: any): void {
-
     console.log(this.user);
-
+  
     this.errorMessages = { email: '', password: '', confirmPassword: '' };
 
+  
     if (registerForm.valid) {
-
       if (this.user.password !== this.user.confirmPassword) {
         this.errorMessages.confirmPassword = 'Las contraseñas no coinciden.';
         return;
       }
-
+  
       if (!this.isEmailValid(String(this.user.email))) {
         console.log("Correo inválido", this.user.email);
         this.errorMessages.email = 'Correo electrónico inválido.';
         return;
       }
-
+  
       const formattedBirthdate = this.formatDate(this.user.birthDate);
       this.user.birthDate = formattedBirthdate;
-
       this.user.role = '2';
-
-
+  
       const userData = {
         fullName: this.user.fullName,
         dni: this.user.dni,
@@ -115,22 +113,24 @@ formatDate(date: string): string {
         province: this.user.province,
         locality: this.user.locality,
         role: this.user.role,
-        memberships:[]
+        memberships: []
       };
-      
-      this.userService.createUser(userData).subscribe(
-        (response) => {
+  
+      this.userService.createUser(userData).subscribe({
+        next: (response) => {
           console.log("Usuario creado exitosamente", response);
-          registerForm.reset(); 
+          registerForm.reset();
         },
-        (error:Error) => {
-          console.error('Error al crear usuario', error);
+        error: (error) => {
+          this.errorMessage = error.error.message || 'Hubo un error al crear el usuario. Intenta de nuevo.';
+          console.error('Error al crear usuario:', error);
         }
-      );
+      });
     } else {
       console.log("Formulario inválido");
     }
   }
+  
 
   isEmailValid(email: string): boolean {
     email = email.trim(); 

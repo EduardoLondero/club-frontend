@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LocationService } from '../../services/location.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-admin-location',
@@ -15,7 +16,7 @@ export class AdminLocationComponent implements OnInit {
   provinces: any[] = [];
   activeTable: 'localities' | 'provinces' = 'localities';
   showModal: boolean = false;
-  modalType: 'locality' | 'province' | null = null;
+  modalType: 'create-locality' | 'edit-locality' | 'create-province' | 'edit-province' = 'edit-province';
   newLocality = { name: '', postalCode: 0, oProvinciaId: '', users: []};
   newProvince = { nameprovince: '', localities: [] };
   showConfirmModal: boolean = false;
@@ -55,61 +56,78 @@ export class AdminLocationComponent implements OnInit {
     });
   }
 
-  openEditModal(type: string, item: any) {
-    this.modalType2 = type;
-    if (type === 'locality') {
-      this.editLocality = { ...item }; 
-    } else if (type === 'province') {
-      this.editProvince = { ...item };
-    }
-    this.showModal = true; 
-  }
-
 
   showTable(type: 'localities' | 'provinces') {
     this.activeTable = type;
   }
 
-  openModal(type: 'locality' | 'province') {
-    this.modalType2 = type;
+  openModal(modalType: 'create-locality' | 'edit-locality' | 'create-province' | 'edit-province', item?: any) {
+    this.modalType = modalType;
+
+    if (modalType === 'create-locality') {
+        this.newLocality = { name: '', postalCode: 0, oProvinciaId: '', users: [] };
+    } else if (modalType === 'edit-locality') {
+        this.editLocality = { ...item };
+    } else if (modalType === 'create-province') {
+        this.newProvince = { nameprovince: '', localities: [] };
+    } else if (modalType === 'edit-province') {
+      const { localities, ...rest } = item;
+      this.editProvince = { ...rest };
+      
+    }
+
     this.showModal = true;
-  }
+}
+
 
   closeModal() {
     this.showModal = false;
+    this.modalType = 'edit-province';
+    this.errorMessage = '';
     this.newLocality = { name: '', postalCode: 0, oProvinciaId: '', users: [] };
     this.newProvince = { nameprovince: '' , localities: [] };
   }
 
   updateLocality() {
     const localityId = this.editLocality.id;
-    this.locationService.updateLocality(localityId, this.editLocality).subscribe(
-      response => {
+    this.locationService.updateLocality(localityId, this.editLocality).subscribe({
+      next: (response) => {
         console.log('Localidad actualizada', response);
         this.closeModal();  
         this.loadLocalities();  
       },
-      error => {
-        this.errorMessage = 'Hubo un error al actualizar la localidad. Intenta de nuevo.';
-        console.error('Error al actualizar localidad', error);
+      error: (error) => {
+        this.errorMessage = error.error.message || 'Hubo un error al actualizar la localidad. Intenta de nuevo.';
+        console.error('Error al actualizar localidad:', error);
       }
-    );
+    });
   }
+  
 
   updateProvince() {
+    if (!this.editProvince || !this.editProvince.id) {
+      this.errorMessage = 'Datos de la provincia inválidos.';
+      console.error('Error: Datos de la provincia no están definidos correctamente.');
+      return;
+    }
+  
     const provinceId = this.editProvince.id;
-    this.locationService.updateProvince(provinceId, this.editProvince).subscribe(
-      response => {
-        console.log('Provincia actualizada', response);
-        this.closeModal();  
-        this.loadProvinces();  
+  
+    this.locationService.updateProvince(provinceId, this.editProvince).subscribe({
+      next: (response) => {
+        console.log('Provincia actualizada con éxito:', response);
+        this.closeModal();
+        this.loadProvinces();
+        this.errorMessage = ''; // Limpiar mensajes de error en caso de éxito
       },
-      error => {
-        this.errorMessage = 'Hubo un error al actualizar la provincia. Intenta de nuevo.';
-        console.error('Error al actualizar provincia', error);
+      error: (error) => {
+        this.errorMessage = error?.error?.message || 'Hubo un error al actualizar la provincia. Intenta de nuevo.';
+        console.error('Error al actualizar provincia:', error);
       }
-    );
+    });
   }
+  
+  
   
   createLocality(): void {
     console.log('Datos que se enviarán:', this.newLocality);
@@ -164,8 +182,8 @@ export class AdminLocationComponent implements OnInit {
           this.loadLocalities();
           this.closeConfirmModal();
         },
-        error: (err) => {
-          this.errorMessage = err?.message || 'Ocurrió un error al eliminar la localidad.';
+        error: (err: HttpErrorResponse) => {
+          this.errorMessage = err.error?.message || 'Ocurrió un error al eliminar la localidad.';
           console.error('Error:', err);
         }
       });
@@ -175,9 +193,9 @@ export class AdminLocationComponent implements OnInit {
           this.loadProvinces();
           this.closeConfirmModal();
         },
-        error: (err) => {
+        error: (err: HttpErrorResponse) => {
          
-          this.errorMessage = err?.message || 'Ocurrió un error al eliminar la provincia.';
+          this.errorMessage = err.error?.message || 'Ocurrió un error al eliminar la provincia.';
           console.error('Error:', err);
         }
       });

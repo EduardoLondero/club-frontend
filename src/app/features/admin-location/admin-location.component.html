@@ -1,103 +1,146 @@
 <div class="container">
+  <aside class="sidebar">
+    <h2>Administración</h2>
+    <button (click)="showTable('localities')">Administrar Localidades</button>
+    <button (click)="showTable('provinces')">Administrar Provincias</button>
+  </aside>
 
-    <aside class="sidebar">
-      <h2>Administración</h2>
-      <button (click)="showTable('localities')">Administrar Localidades</button>
-      <button (click)="showTable('provinces')">Administrar Provincias</button>
-    </aside>
+  <main class="content">
+    <section *ngIf="activeTable === 'localities'" class="table-container">
+      <h2>Administrar Localidades</h2>
+      <button class="add-btn" (click)="openModal('create-locality')">➕ Nueva Localidad</button>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Código Postal</th>
+            <th>Provincia</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let locality of localities">
+            <td>{{ locality.id }}</td>
+            <td>{{ locality.name }}</td>
+            <td>{{ locality.postalCode }}</td>
+            <td>{{ locality.province?.nameprovince }}</td>
+            <td>
+              <button class="edit-btn" (click)="openModal('edit-locality', locality)">✏️ Editar</button>
+              <button class="delete-btn" (click)="confirmDelete('locality', locality.id)">🗑 Eliminar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
 
-    <main class="content">
-      <section *ngIf="activeTable === 'localities'" class="table-container">
-        <h2>Administrar Localidades</h2>
-        <button class="add-btn" (click)="openModal('locality')">➕ Nueva Localidad</button>
-        <table>
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Nombre</th>
-              <th>Código Postal</th>
-              <th>Provincia</th>
-              <th>Acciones</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let locality of localities">
-              <td>{{ locality.id }}</td>
-              <td>{{ locality.name }}</td>
-              <td>{{ locality.postalCode }}</td>
-              <td>{{ locality.province?.nameprovince }}</td>
-              <td>
-                <button class="edit-btn" (click)="openEditModal('locality', locality)">✏️ Editar</button>
-                <button class="delete-btn" (click)="confirmDelete('locality', locality.id)">🗑 Eliminar</button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </section>
-      
-      <section *ngIf="activeTable === 'provinces'" class="table-container"section2>Administrar Provincias
-        <button class="add-btn" (click)="openModal('province')">➕ Nueva Provincia</button>
-        <table>
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Nombre</th>
-              <th>Acciones</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let province of provinces">
-              <td>{{ province.id }}</td>
-              <td>{{ province.nameprovince }}</td>
-              <td>
-                <button class="edit-btn" (click)="openEditModal('province', province)">✏️ Editar</button>
-                <button class="delete-btn" (click)="confirmDelete('province', province.id)">🗑 Eliminar</button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </section>
+    <section *ngIf="activeTable === 'provinces'" class="table-container">
+      <h2>Administrar Provincias</h2>
+      <button class="add-btn" (click)="openModal('create-province')">➕ Nueva Provincia</button>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let province of provinces">
+            <td>{{ province.id }}</td>
+            <td>{{ province.nameprovince }}</td>
+            <td>
+              <button class="edit-btn" (click)="openModal('edit-province', province)">✏️ Editar</button>
+              <button class="delete-btn" (click)="confirmDelete('province', province.id)">🗑 Eliminar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+</div>
+
+<div class="modal" *ngIf="showModal">
+  <div class="modal-content">
+    <h2>
+      <ng-container [ngSwitch]="modalType">
+        <span *ngSwitchCase="'create-locality'">Nueva Localidad</span>
+        <span *ngSwitchCase="'edit-locality'">Editar Localidad</span>
+        <span *ngSwitchCase="'create-province'">Nueva Provincia</span>
+        <span *ngSwitchCase="'edit-province'">Editar Provincia</span>
+      </ng-container>
+    </h2>
+
+    <!-- Formulario para CREAR Localidad -->
+    <form *ngIf="modalType === 'create-locality'" (submit)="createLocality()">
+      <label>Nombre:</label>
+      <input type="text" [(ngModel)]="newLocality.name" name="name" required>
+      <label>Código Postal:</label>
+      <input type="text" [(ngModel)]="newLocality.postalCode" name="postalCode" required>
+      <label>Provincia:</label>
+      <select [(ngModel)]="newLocality.oProvinciaId" name="provinceId">
+        <option *ngFor="let province of provinces" [value]="province.id">
+          {{ province.nameprovince }}
+        </option>
+      </select>
       <div *ngIf="errorMessage" class="error-message">
         <p>{{ errorMessage }}</p>
       </div>
-    </main>
-  </div>
+      <button type="submit">Crear</button>
+    </form>
 
-        
-  
-<div class="modal" *ngIf="showModal">
-    <div class="modal-content">
-      <h2>{{ modalType === 'locality' ? 'Editar Localidad' : 'Editar Provincia' }}</h2>
-      <form *ngIf="modalType2 === 'locality'" (submit)="updateLocality()">
-        <label>Nombre:</label>
-        <input type="text" [(ngModel)]="editLocality.name" name="name" required>
-        <label>Código Postal:</label>
-        <input type="text" [(ngModel)]="editLocality.postalCode" name="postalCode" required>
-        <label>Provincia:</label>
-        <select [(ngModel)]="editLocality.oProvinciaId" name="provinceId">
-          <option *ngFor="let province of provinces" [value]="province.id">
-            {{ province.nameprovince }}
-          </option>
-        </select>
-        <button type="submit">Guardar Cambios</button>
-      </form>
-      <form *ngIf="modalType2 === 'province'" (submit)="updateProvince()">
-        <label>Nombre de la Provincia:</label>
-        <input type="text" [(ngModel)]="editProvince.nameprovince" name="nameprovince" required>
-        <button type="submit">Guardar Cambios</button>
-      </form>
-      <button class="close-btn" (click)="closeModal()">Cerrar</button>
-    </div>
-  </div>
-  
-  
+    <!-- Formulario para EDITAR Localidad -->
+    <form *ngIf="modalType === 'edit-locality'" (submit)="updateLocality()">
+      <label>Nombre:</label>
+      <input type="text" [(ngModel)]="editLocality.name" name="name" required>
+      <label>Código Postal:</label>
+      <input type="text" [(ngModel)]="editLocality.postalCode" name="postalCode" required>
+      <label>Provincia:</label>
+      <select [(ngModel)]="editLocality.oProvinciaId" name="provinceId">
+        <option *ngFor="let province of provinces" [value]="province.id">
+          {{ province.nameprovince }}
+        </option>
+      </select>
 
-  <div class="modal confirm-modal" *ngIf="showConfirmModal">
-    <div class="modal-content animate">
-      <h2>¿Estás seguro?</h2>
-      <p>Esta acción no se puede deshacer.</p>
-      <button class="confirm-btn" (click)="deleteItem()">Eliminar</button>
-      <button class="cancel-btn" (click)="closeConfirmModal()">Cancelar</button>
-    </div>
+      <div *ngIf="errorMessage" class="error-message">
+        <p>{{ errorMessage }}</p>
+      </div>
+
+      <button type="submit">Guardar Cambios</button>
+    </form>
+
+    <!-- Formulario para CREAR Provincia -->
+    <form *ngIf="modalType === 'create-province'" (submit)="createProvince()">
+      <label>Nombre de la Provincia:</label>
+      <input type="text" [(ngModel)]="newProvince.nameprovince" name="nameprovince" required>
+      <button type="submit">Crear</button>
+      <div *ngIf="errorMessage" class="error-message">
+        <p>{{ errorMessage }}</p>
+      </div>
+    </form>
+
+    <!-- Formulario para EDITAR Provincia -->
+    <form *ngIf="modalType === 'edit-province'" (submit)="updateProvince()">
+      <label>Nombre de la Provincia:</label>
+      <input type="text" [(ngModel)]="editProvince.nameprovince" name="nameprovince" required>
+      <div *ngIf="errorMessage" class="error-message">
+        <p>{{ errorMessage }}</p>
+      </div>
+      <button type="submit">Guardar Cambios</button>
+    </form>
+
+    <button class="close-btn" (click)="closeModal()">Cerrar</button>
   </div>
   
+</div>
+
+
+
+<div class="modal confirm-modal" *ngIf="showConfirmModal">
+  <div class="modal-content animate">
+    <h2>¿Estás seguro?</h2>
+    <p>Esta acción no se puede deshacer.</p>
+    <button class="confirm-btn" (click)="deleteItem()">Eliminar</button>
+    <button class="cancel-btn" (click)="closeConfirmModal()">Cancelar</button>
+  </div>
+</div>

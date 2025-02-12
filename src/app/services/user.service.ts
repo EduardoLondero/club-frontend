@@ -49,12 +49,7 @@ export class UserService {
   }
 
 
-    updateUser(userId: number, userData: any): Observable<any> {
-      return this.http.put(`${this.apiUrl}/user/${userId}`, userData).pipe(
-        catchError((error) => {
-          console.error('Error al actualizar los datos del usuario', error);
-          return of({ success: false, message: 'No se pudo actualizar los datos del usuario.' });
-        })
-      );
+  updateUser(userId: number, userData: any): Observable<any> {
+    return this.http.put(`${this.apiUrl}/user/${userId}`, userData);
 }
 }

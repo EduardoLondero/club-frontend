@@ -377,6 +377,25 @@ table td {
   color: #555;
 }
 
+.error-message {
+  background-color: #f8d7da; 
+  color: #721c24; 
+  border: 1px solid #f5c6cb; 
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  margin: 10px auto;
+}
+
+.error-message p {
+  margin: 0;
+}
 
 @media (max-width: 768px) {
   .profile-container {
