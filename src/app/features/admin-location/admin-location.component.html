@@ -71,7 +71,7 @@
       </ng-container>
     </h2>
 
-    <!-- Formulario para CREAR Localidad -->
+    
     <form *ngIf="modalType === 'create-locality'" (submit)="createLocality()">
       <label>Nombre:</label>
       <input type="text" [(ngModel)]="newLocality.name" name="name" required>
@@ -89,7 +89,7 @@
       <button type="submit">Crear</button>
     </form>
 
-    <!-- Formulario para EDITAR Localidad -->
+    
     <form *ngIf="modalType === 'edit-locality'" (submit)="updateLocality()">
       <label>Nombre:</label>
       <input type="text" [(ngModel)]="editLocality.name" name="name" required>
@@ -109,7 +109,7 @@
       <button type="submit">Guardar Cambios</button>
     </form>
 
-    <!-- Formulario para CREAR Provincia -->
+    
     <form *ngIf="modalType === 'create-province'" (submit)="createProvince()">
       <label>Nombre de la Provincia:</label>
       <input type="text" [(ngModel)]="newProvince.nameprovince" name="nameprovince" required>
@@ -119,7 +119,7 @@
       </div>
     </form>
 
-    <!-- Formulario para EDITAR Provincia -->
+    
     <form *ngIf="modalType === 'edit-province'" (submit)="updateProvince()">
       <label>Nombre de la Provincia:</label>
       <input type="text" [(ngModel)]="editProvince.nameprovince" name="nameprovince" required>
@@ -142,5 +142,8 @@
     <p>Esta acción no se puede deshacer.</p>
     <button class="confirm-btn" (click)="deleteItem()">Eliminar</button>
     <button class="cancel-btn" (click)="closeConfirmModal()">Cancelar</button>
+    <div *ngIf="errorMessage" class="error-message">
+      <p>{{ errorMessage }}</p> 
+    </div>
   </div>
 </div>

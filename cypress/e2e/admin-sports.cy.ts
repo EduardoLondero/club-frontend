@@ -7,8 +7,8 @@ describe('Formulario de Registro', () => {
   it('Debe permitir crear un nuevo usuario', () => {
 
     cy.get('input[name="name"]').type('Juan');
-    cy.get('input[name="dni"]').type('12345678');
-    cy.get('input[name="email"]').type('juan@example.com');
+    cy.get('input[name="dni"]').type('12345679');
+    cy.get('input[name="email"]').type('juan2@example.com');
     cy.get('input[name="phone"]').type('0123456789');
     cy.get('input[name="address"]').type('Av. Siempre Viva 123');
 
@@ -32,8 +32,8 @@ describe('Formulario de Registro', () => {
 
   it('Debe mostrar un error si las contraseñas no coinciden', () => {
     cy.get('input[name="name"]').type('Juan');
-    cy.get('input[name="dni"]').type('12345678');
-    cy.get('input[name="email"]').type('juan@example.com');
+    cy.get('input[name="dni"]').type('12345679');
+    cy.get('input[name="email"]').type('juan1@example.com');
     cy.get('input[name="phone"]').type('0123456789');
     cy.get('input[name="address"]').type('Av. Siempre Viva 123');
 
@@ -55,7 +55,7 @@ describe('Formulario de Registro', () => {
 
   it('Debe mostrar un error si el correo electrónico no es válido', () => {
     cy.get('input[name="name"]').type('Juan');
-    cy.get('input[name="dni"]').type('12345678');
+    cy.get('input[name="dni"]').type('12345679');
 
     cy.get('input[name="email"]').focus().blur();
     cy.get('input[name="email"]').type('sadd');

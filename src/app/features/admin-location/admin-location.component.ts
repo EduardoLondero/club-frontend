@@ -170,6 +170,7 @@ export class AdminLocationComponent implements OnInit {
   closeConfirmModal() {
     this.showConfirmModal = false;
     this.itemToDelete = null;
+    this.errorMessage = '';
   }
 
 
